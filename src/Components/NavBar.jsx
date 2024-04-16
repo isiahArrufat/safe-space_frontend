@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
+import "../App.css";
+
 const URL = import.meta.env.VITE_BASE_URL;
 
 const NavBar = ({ toggleLogin, handleLogout }) => {
@@ -28,23 +30,33 @@ const NavBar = ({ toggleLogin, handleLogout }) => {
   }, [toggleLogin]);
 
   return (
-    <div className="navbar-container">
-      <h1>Navbar Component</h1>
+    <div className="flex space-x-4 bg-purple-300">
       <h2>
         <Link style={{ textDecoration: "none" }} to="/">
-          Your image or Logo (click here to go to Landing Page)
+        <img className="w-20 h-20" src="https://mymodernmet.com/wp/wp-content/uploads/2017/07/negative-space-graphic-design-10.jpg" alt="Your Logo" />
         </Link>
       </h2>
 
-      {!toggleLogin ? (
+        {!toggleLogin ? (
+
         <Link to={"/login"}>
+          S.S
+          < br/>
           <span>Login</span>
+          < br/>
+          <button onClick={handleLogout}>Logout</button>
         </Link>
       ) : (
         <div>
-          {user && <span>Hello, {user.username.toUpperCase()}? | </span>}
+          {user && <span>{user.username.toUpperCase()}? | </span>}
+          <h3>{}</h3>
+
           <Link onClick={handleLogout}>
+            < br/>
             <span>Logout</span>
+          </Link>
+          <Link to={"/profile"}>
+            <span>My Profile</span>
           </Link>
         </div>
       )}
