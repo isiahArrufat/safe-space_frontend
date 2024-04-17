@@ -1,8 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import EntriesCarousel from './EntriesCarousel'; 
 
-
-
 const ProfilePage = () => {
     const { user } = useOutletContext();
 
@@ -12,9 +10,9 @@ const ProfilePage = () => {
             <div className="flex-grow">
                 {user && (
                     <div className="flex flex-col h-full">
-                        {/* Entries Carousel */}
+                        <EntriesCarousel user={user}/>
                         <div className="flex-grow">
-                            <EntriesCarousel />
+                           
                         </div>
                         {/* Buttons for publish, edit, delete */}
                         <div className="flex justify-center p-4">

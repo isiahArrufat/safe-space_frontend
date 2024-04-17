@@ -49,12 +49,6 @@ const NavBar = ({ toggleLogin, handleLogout }) => {
       ) : (
         <div>
           {user && <span>{user.username.toUpperCase()}? | </span>}
-          <h3>{}</h3>
-
-          <Link onClick={handleLogout}>
-            < br/>
-            <span>Logout</span>
-          </Link>
           <Link to={"/profile"}>
             <span>My Profile</span>
           </Link>
